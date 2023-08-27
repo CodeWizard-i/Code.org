@@ -1,0 +1,144 @@
+onEvent("REV", "input", function( ) {
+  setText("STR", getNumber("REV") * 2);
+  setText("RIG", getNumber("REV") * 4);
+  setText("RAD", getNumber("REV") * 6.2831853072);
+  setText("MIL", getNumber("REV") * 6400);
+  setText("GRA", getNumber("REV") * 400);
+  setText("DEG", getNumber("REV") * 360);
+});
+
+onEvent("STR", "input", function( ) {
+  setText("REV", getNumber("STR") / 2);
+  setText("RIG", getNumber("STR") * 2);
+  setText("RAD", getNumber("STR") * 3.1415926536);
+  setText("MIL", getNumber("STR") * 3200);
+  setText("GRA", getNumber("STR") * 200);
+  setText("DEG", getNumber("STR") * 180);
+});
+
+onEvent("RIG", "input", function( ) {
+  setText("REV", getNumber("RIG") / 4);
+  setText("STR", getNumber("RIG") / 2);
+  setText("RAD", getNumber("RIG") * 1.5707963268);
+  setText("MIL", getNumber("RIG") * 1600);
+  setText("GRA", getNumber("RIG") * 100);
+  setText("DEG", getNumber("RIG") * 90);
+});
+
+onEvent("RAD", "input", function( ) {
+  setText("REV", getNumber("RAD") * 0.1591549431);
+  setText("STR", getNumber("RAD") * 0.3183098862);
+  setText("RIG", getNumber("RAD") * 0.6366197724);
+  setText("MIL", getNumber("RAD") * 1018.5916358);
+  setText("GRA", getNumber("RAD") * 63.661977237);
+  setText("DEG", getNumber("RAD") * 57.295779513);
+});
+
+onEvent("MIL", "input", function( ) {
+  setText("REV", getNumber("MIL") * 0.00015625);
+  setText("STR", getNumber("MIL") * 0.0003125);
+  setText("RIG", getNumber("MIL") * 0.000625);
+  setText("RAD", getNumber("MIL") * 0.0009817477);
+  setText("GRA", getNumber("MIL") * 0.0625);
+  setText("DEG", getNumber("MIL") * 0.05625);
+});
+
+onEvent("GRA", "input", function( ) {
+  setText("REV", getNumber("GRA") * 0.0025);
+  setText("STR", getNumber("GRA") * 0.005);
+  setText("RIG", getNumber("GRA") * 0.01);
+  setText("RAD", getNumber("GRA") * 0.0157079633);
+  setText("MIL", getNumber("GRA") * 16);
+  setText("DEG", getNumber("GRA") * 0.9);
+});
+
+onEvent("DEG", "input", function( ) {
+  setText("REV", getNumber("DEG") * 0.0027777778);
+  setText("STR", getNumber("DEG") * 0.0055555556);
+  setText("RIG", getNumber("DEG") * 0.0111111111);
+  setText("RAD", getNumber("DEG") * 0.0174532925);
+  setText("MIL", getNumber("DEG") * 17.777777778);
+  setText("GRA", getNumber("DEG") * 1.1111111111);
+});
+
+onEvent("NEXT", "click", function( ) {
+  setScreen("Angle_Converter_2");
+});
+
+onEvent("BACK", "click", function( ) {
+  setScreen("Angle_Converter");
+});
+
+onEvent("A", "input", function( ) {
+  if (getNumber("A") < 90) {
+    setText("B", "Yes");
+    setText("C", "No");
+    setText("D", "No");
+    setText("E", "No");
+    setText("F", "No");
+    setText("G", "No");
+  }
+  
+  if (getNumber("A") > 90) {
+    setText("B", "No");
+    setText("C", "No");
+    setText("D", "Yes");
+    setText("E", "No");
+    setText("F", "No");
+    setText("G", "No");
+  }
+  
+  if (getNumber("A") == 90) {
+    setText("B", "No");
+    setText("C", "Yes");
+    setText("D", "No");
+    setText("E", "No");
+    setText("F", "No");
+    setText("G", "No");
+  }
+  
+  if (getNumber("A") == 180) {
+    setText("B", "No");
+    setText("C", "No");
+    setText("D", "No");
+    setText("E", "Yes");
+    setText("F", "No");
+    setText("G", "No");
+  }
+  
+  if (getNumber("A") > 180) {
+    setText("B", "No");
+    setText("C", "No");
+    setText("D", "No");
+    setText("E", "No");
+    setText("F", "Yes");
+    setText("G", "No");
+  }
+  
+  if (getNumber("A") == 360) {
+    setText("B", "No");
+    setText("C", "No");
+    setText("D", "No");
+    setText("E", "No");
+    setText("F", "No");
+    setText("G", "Yes");
+  }
+  
+  if (getNumber("A") > 360) {
+    setText("B", "No");
+    setText("C", "No");
+    setText("D", "No");
+    setText("E", "No");
+    setText("F", "No");
+    setText("G", "No");
+  }
+  
+  if (getNumber("A") == 0) {
+    setText("B", "No");
+    setText("C", "No");
+    setText("D", "No");
+    setText("E", "No");
+    setText("F", "No");
+    setText("G", "No");
+  }
+});
