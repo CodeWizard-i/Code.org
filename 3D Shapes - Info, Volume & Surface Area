@@ -1,0 +1,135 @@
+onEvent("Cube&Cuboid", "click", function( ) {
+  setScreen("Cube&Cuboid1");
+});
+
+onEvent("BACK", "click", function( ) {
+  setScreen("HomeScreen");
+});
+
+onEvent("NEXT", "click", function( ) {
+  setScreen("AS1");
+});
+
+onEvent("BACK2", "click", function( ) {
+  setScreen("Cube&Cuboid1");
+});
+
+onEvent("Calculate", "click", function( ) {
+  setText("Output", Math.pow(getNumber("A"), 3));
+});
+
+onEvent("Calculate2", "click", function( ) {
+  setText("Output2", 6 * Math.pow(getNumber("A2"), 2));
+});
+
+onEvent("NEXT2", "click", function( ) {
+  setScreen("AS2");
+});
+
+onEvent("BACK3", "click", function( ) {
+  setScreen("AS1");
+});
+
+onEvent("Calculate3", "click", function( ) {
+  setText("Output3", getNumber("L") * (getNumber("B") * getNumber("H")));
+});
+
+onEvent("Calculate4", "click", function( ) {
+  setText("Output4", 2 * (getNumber("B2") * getNumber("L2") + (getNumber("H2") * getNumber("L2") + getNumber("H2") * getNumber("B2"))));
+});
+
+onEvent("Cone", "click", function( ) {
+  setScreen("Cone1");
+});
+
+onEvent("BACK4", "click", function( ) {
+  setScreen("HomeScreen");
+});
+
+onEvent("NEXT3", "click", function( ) {
+  setScreen("AS3");
+});
+
+onEvent("BACK5", "click", function( ) {
+  setScreen("Cone1");
+});
+
+onEvent("Calculate5", "click", function( ) {
+  setText("Output5", (3.142 * Math.pow(getNumber("R"), 2)) * (getNumber("H3") / 3));
+});
+
+onEvent("Calculate6", "click", function( ) {
+  setText("Output6", 3.142 * (getNumber("R2") * (getNumber("R2") + Math.sqrt(Math.pow(getNumber("H4"), 2) + Math.pow(getNumber("R2"), 2)))));
+});
+
+onEvent("Pyramid", "click", function( ) {
+  setScreen("Pyramid1");
+});
+
+onEvent("BACK6", "click", function( ) {
+  setScreen("HomeScreen");
+});
+
+onEvent("NEXT4", "click", function( ) {
+  setScreen("AS4");
+});
+
+onEvent("BACK7", "click", function( ) {
+  setScreen("Pyramid1");
+});
+
+onEvent("Calculate7", "click", function( ) {
+  setText("Output7", 0.333333 * (getNumber("B3") * getNumber("H5")));
+});
+
+onEvent("Calculate8", "click", function( ) {
+  setText("Output8", 0.5 * (getNumber("S") * getNumber("B4")) + 1.5 * (getNumber("B4") * getNumber("H6")));
+});
+
+onEvent("Sphere", "click", function( ) {
+  setScreen("Sphere1");
+});
+
+onEvent("BACK8", "click", function( ) {
+  setScreen("HomeScreen");
+});
+
+onEvent("NEXT5", "click", function( ) {
+  setScreen("AS5");
+});
+
+onEvent("BACK9", "click", function( ) {
+  setScreen("Sphere1");
+});
+
+onEvent("Calculate9", "click", function( ) {
+  setText("Output9", 1.3333 * (3.142 * Math.pow(getNumber("R3"), 3)));
+});
+
+onEvent("Calculate10", "click", function( ) {
+  setText("Output10", 4 * (3.142 * Math.pow(getNumber("R4"), 2)));
+});
+
+onEvent("Cylinder", "click", function( ) {
+  setScreen("Cylinder1");
+});
+
+onEvent("BACK10", "click", function( ) {
+  setScreen("HomeScreen");
+});
+
+onEvent("NEXT6", "click", function( ) {
+  setScreen("AS6");
+});
+
+onEvent("BACK11", "click", function( ) {
+  setScreen("Cylinder1");
+});
+
+onEvent("Calculate11", "click", function( ) {
+  setText("Output11", 3.142 * (Math.pow(getNumber("R5"), 2) * getNumber("H7")));
+});
+
+onEvent("Calculate12", "click", function( ) {
+  setText("Output12", (2 * 3.142) * (getNumber("R6") * getNumber("H8")) + 2 * (3.142 * Math.pow(getNumber("R6"), 2)));
+});
