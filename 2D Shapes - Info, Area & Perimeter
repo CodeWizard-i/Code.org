@@ -1,0 +1,311 @@
+onEvent("Triangles", "click", function( ) {
+  setScreen("Triangle");
+});
+
+onEvent("BACK1", "click", function( ) {
+  setScreen("Home_Screen");
+});
+
+onEvent("NEXT1", "click", function( ) {
+  setScreen("Triangle_2");
+});
+
+onEvent("BACK2", "click", function( ) {
+  setScreen("Triangle");
+});
+
+onEvent("NEXT2", "click", function( ) {
+  setScreen("AP1");
+});
+
+onEvent("BACK3", "click", function( ) {
+  setScreen("Triangle_2");
+});
+
+onEvent("Calculate", "click", function( ) {
+  setText("Output", (getText("A") * getText("B")) / 2);
+});
+
+onEvent("Calculate2", "click", function( ) {
+  setText("Output2", getNumber("A2") + (getNumber("B2") + Math.sqrt(getNumber("A2") * getNumber("A2") + getNumber("B2") * getNumber("B2"))));
+});
+
+onEvent("BACK4", "click", function( ) {
+  setScreen("AP1");
+});
+
+onEvent("NEXT3", "click", function( ) {
+  setScreen("AP2");
+});
+
+onEvent("Calculate4", "click", function( ) {
+  setText("Output4", 3 * getNumber("A4"));
+});
+
+onEvent("Calculate3", "click", function( ) {
+  setText("Output3", 0.4330127018922193233818615853764 * (getNumber("A3") * getNumber("A3")));
+});
+
+onEvent("NEXT4", "click", function( ) {
+  setScreen("AP3");
+});
+
+onEvent("BACK5", "click", function( ) {
+  setScreen("AP2");
+});
+
+onEvent("Calculate5", "click", function( ) {
+  setText("Output5", (getNumber("B3") * getNumber("H")) / 2);
+});
+
+onEvent("Calculate6", "click", function( ) {
+  setText("Output6", getNumber("A5") + (getNumber("B4") + getNumber("C3")));
+});
+
+onEvent("Quadrilaterals", "click", function( ) {
+  setScreen("Quadrilateral");
+});
+
+onEvent("BACK6", "click", function( ) {
+  setScreen("Home_Screen");
+});
+
+onEvent("NEXT5", "click", function( ) {
+  setScreen("Quadrilateral_2");
+});
+
+onEvent("BACK7", "click", function( ) {
+  setScreen("Quadrilateral");
+});
+
+onEvent("NEXT6", "click", function( ) {
+  setScreen("Quadrilateral_3");
+});
+
+onEvent("BACK8", "click", function( ) {
+  setScreen("Quadrilateral_2");
+});
+
+onEvent("NEXT7", "click", function( ) {
+  setScreen("AP4");
+});
+
+onEvent("BACK9", "click", function( ) {
+  setScreen("Quadrilateral_3");
+});
+
+onEvent("Calculate7", "click", function( ) {
+  setText("Output7", getNumber("S") * getNumber("S"));
+});
+
+onEvent("Calculate8", "click", function( ) {
+  setText("Output8", getNumber("S2") * 4);
+});
+
+onEvent("NEXT8", "click", function( ) {
+  setScreen("AP5");
+});
+
+onEvent("BACK10", "click", function( ) {
+  setScreen("AP4");
+});
+
+onEvent("Calculate9", "click", function( ) {
+  setText("Output9", getNumber("B5") * getNumber("L"));
+});
+
+onEvent("Calculate10", "click", function( ) {
+  setText("Output10", getNumber("B6") * 2 + getNumber("L2") * 2);
+});
+
+onEvent("Calculate11", "click", function( ) {
+  setText("Output11", ((getNumber("A6") + getNumber("B7")) / 2) * getNumber("H2"));
+});
+
+onEvent("NEXT9", "click", function( ) {
+  setScreen("AP6");
+});
+
+onEvent("BACK11", "click", function( ) {
+  setScreen("AP5");
+});
+
+onEvent("Calculate12", "click", function( ) {
+  setText("Output12", getNumber("A7") + (getNumber("B8") + (getNumber("C") + getNumber("D"))));
+});
+
+onEvent("NEXT10", "click", function( ) {
+  setScreen("AP7");
+});
+
+onEvent("BACK12", "click", function( ) {
+  setScreen("AP6");
+});
+
+onEvent("Calculate13", "click", function( ) {
+  setText("Output13", getNumber("B9") * getNumber("H3"));
+});
+
+onEvent("Calculate14", "click", function( ) {
+  setText("Output14", (getNumber("A8") + getNumber("B10")) * 2);
+});
+
+onEvent("BACK13", "click", function( ) {
+  setScreen("AP7");
+});
+
+onEvent("NEXT11", "click", function( ) {
+  setScreen("AP8");
+});
+
+onEvent("Calculate15", "click", function( ) {
+  setText("Output15", (getNumber("P") * getNumber("Q")) / 2);
+});
+
+onEvent("Calculate16", "click", function( ) {
+  setText("Output16", 4 * getNumber("A9"));
+});
+
+onEvent("Pentagon", "click", function( ) {
+  setScreen("Pentagon1");
+});
+
+onEvent("BACK14", "click", function( ) {
+  setScreen("Home_Screen");
+});
+
+onEvent("NEXT12", "click", function( ) {
+  setScreen("AP9");
+});
+
+onEvent("BACK15", "click", function( ) {
+  setScreen("Pentagon1");
+});
+
+onEvent("Calculate17", "click", function( ) {
+  setText("Output17", 0.25 * (Math.sqrt(5 * ((5 + 2) * Math.sqrt(5))) * (getNumber("A10") * getNumber("A10"))));
+});
+
+onEvent("Calculate18", "click", function( ) {
+  setText("Output18", 5 * getNumber("A11"));
+});
+
+onEvent("Hexagon", "click", function( ) {
+  setScreen("Hexagon1");
+});
+
+onEvent("BACK16", "click", function( ) {
+  setScreen("Home_Screen");
+});
+
+onEvent("NEXT13", "click", function( ) {
+  setScreen("AP10");
+});
+
+onEvent("BACK17", "click", function( ) {
+  setScreen("Hexagon1");
+});
+
+onEvent("Calculate19", "click", function( ) {
+  setText("Output19", ((3 * Math.sqrt(3)) / 2) * (getNumber("A12") * getNumber("A12")));
+});
+
+onEvent("Calculate20", "click", function( ) {
+  setText("Output20", getNumber("A13") * 6);
+});
+
+onEvent("Heptagon", "click", function( ) {
+  setScreen("Heptagon1");
+});
+
+onEvent("BACK18", "click", function( ) {
+  setScreen("Home_Screen");
+});
+
+onEvent("NEXT14", "click", function( ) {
+  setScreen("AP11");
+});
+
+onEvent("BACK19", "click", function( ) {
+  setScreen("Heptagon1");
+});
+
+onEvent("Calculate21", "click", function( ) {
+  setText("Output21", 7 * getNumber("A14"));
+});
+
+onEvent("Octagon", "click", function( ) {
+  setScreen("Octagon1");
+});
+
+onEvent("BACK20", "click", function( ) {
+  setScreen("Home_Screen");
+});
+
+onEvent("NEXT15", "click", function( ) {
+  setScreen("AP12");
+});
+
+onEvent("BACK21", "click", function( ) {
+  setScreen("Octagon1");
+});
+
+onEvent("Calculate22", "click", function( ) {
+  setText("Output22", 2 * ((1 + Math.sqrt(2)) * Math.pow(getNumber("A15"), 2)));
+});
+
+onEvent("Calculate23", "click", function( ) {
+  setText("Output23", 8 * getNumber("A16"));
+});
+
+onEvent("Nonagon", "click", function( ) {
+  setScreen("Nonagon1");
+});
+
+onEvent("BACK22", "click", function( ) {
+  setScreen("Home_Screen");
+});
+
+onEvent("NEXT16", "click", function( ) {
+  setScreen("AP14");
+});
+
+onEvent("Calculate24", "click", function( ) {
+  setText("Output24", Math.pow(getNumber("A17"), 2) * 3.633912444001588992536);
+});
+
+onEvent("BACK23", "click", function( ) {
+  setScreen("Home_Screen");
+});
+
+onEvent("Decagon", "click", function( ) {
+  setScreen("Decagon1");
+});
+
+onEvent("NEXT17", "click", function( ) {
+  setScreen("AP13");
+});
+
+onEvent("BACK24", "click", function( ) {
+  setScreen("Decagon1");
+});
+
+onEvent("Calculate25", "click", function( ) {
+  setText("Output25", (3.95632099841488189 * Math.pow(getNumber("A18"), 2)) * 2.5);
+});
+
+onEvent("Calculate26", "click", function( ) {
+  setText("Output26", 10 * getNumber("A19"));
+});
+
+onEvent("button1", "click", function( ) {
+  setScreen("Nonagon1");
+});
+
+onEvent("Calculate27", "click", function( ) {
+  setText("Output27", getNumber("A20") * 9);
+});
+
+onEvent("Calculate28", "click", function( ) {
+  setText("Output28", Math.pow(getNumber("A21"), 2) * 6.18182419377290012721374);
+});
