@@ -1,0 +1,240 @@
+var input1 = "";
+var input2 = "";
+var firstinput = true;
+var operation = "";
+var caltext = "";
+var result;
+
+onEvent("0", "click", function( ) {
+  if (firstinput == true) {
+    input1 = input1 + 0;
+    setText("Result", input1);
+  } else {
+    input2 = input2 + 0;
+    setText("Result", caltext + input2);
+  }
+});
+
+onEvent("1", "click", function( ) {
+  if (firstinput == true) {
+    input1 = input1 + 1;
+    setText("Result", input1);
+  } else {
+    input2 = input2 + 1;
+    setText("Result", caltext + input2);
+  }
+});
+
+onEvent("2", "click", function( ) {
+  if (firstinput == true) {
+    input1 = input1 + 2;
+    setText("Result", input1);
+  } else {
+    input2 = input2 + 2;
+    setText("Result", caltext + input2);
+  }
+});
+
+onEvent("3", "click", function( ) {
+  if (firstinput == true) {
+    input1 = input1 + 3;
+    setText("Result", input1);
+  } else {
+    input2 = input2 + 3;
+    setText("Result", caltext + input2);
+  }
+});
+
+onEvent("4", "click", function( ) {
+  if (firstinput == true) {
+    input1 = input1 + 4;
+    setText("Result", input1);
+  } else {
+    input2 = input2 + 4;
+    setText("Result", caltext + input2);
+  }
+});
+
+onEvent("5", "click", function( ) {
+  if (firstinput == true) {
+    input1 = input1 + 5;
+    setText("Result", input1);
+  } else {
+    input2 = input2 + 5;
+    setText("Result", caltext + input2);
+  }
+});
+
+onEvent("6", "click", function( ) {
+  if (firstinput == true) {
+    input1 = input1 + 6;
+    setText("Result", input1);
+  } else {
+    input2 = input2 + 6;
+    setText("Result", caltext + input2);
+  }
+});
+
+onEvent("7", "click", function( ) {
+  if (firstinput == true) {
+    input1 = input1 + 7;
+    setText("Result", input1);
+  } else {
+    input2 = input2 + 7;
+    setText("Result", caltext + input2);
+  }
+});
+
+onEvent("8", "click", function( ) {
+  if (firstinput == true) {
+    input1 = input1 + 8;
+    setText("Result", input1);
+  } else {
+    input2 = input2 + 8;
+    setText("Result", caltext + input2);
+  }
+});
+
+onEvent("9", "click", function( ) {
+  if (firstinput == true) {
+    input1 = input1 + 9;
+    setText("Result", input1);
+  } else {
+    input2 = input2 + 9;
+    setText("Result", caltext + input2);
+  }
+});
+
+onEvent("+", "click", function( ) {
+  firstinput = false;
+  operation = "add";
+  caltext = input1 + " + ";
+  setText("Result", caltext);
+});
+
+onEvent("-", "click", function( ) {
+  firstinput = false;
+  operation = "subtract";
+  caltext = input1 + " - ";
+  setText("Result", caltext);
+});
+
+onEvent("/", "click", function( ) {
+  firstinput = false;
+  operation = "divide";
+  caltext = input1 + " / ";
+  setText("Result", caltext);
+});
+
+onEvent("*", "click", function( ) {
+  firstinput = false;
+  operation = "multiply";
+  caltext = input1 + " * ";
+  setText("Result", caltext);
+});
+
+onEvent("%", "click", function( ) {
+  firstinput = false;
+  operation = "percent";
+  caltext = input1 / 100;
+  setText("Result", caltext);
+});
+
+onEvent("2√", "click", function( ) {
+  firstinput = false;
+  operation = "sqrt";
+  caltext = Math.sqrt(input1);
+  setText("Result", caltext);
+});
+
+onEvent("x2", "click", function( ) {
+  firstinput = false;
+  operation = "x square";
+  caltext = input1 * input1;
+  setText("Result", caltext);
+});
+
+onEvent("3√", "click", function( ) {
+  var cbrt;
+  cbrt = input1;
+  for (var i = 1; (i * i) * i < cbrt; i++) {
+    setText("Result", i + 1);
+  }
+});
+
+onEvent("x3", "click", function( ) {
+  firstinput = false;
+  operation = "x cube";
+  caltext = input1 * (input1 * input1);
+  setText("Result", caltext);
+});
+
+onEvent("1/x", "click", function( ) {
+  firstinput = false;
+  operation = "1/x";
+  caltext = 1 / input1;
+  setText("Result", caltext);
+});
+
+onEvent("5/x", "click", function( ) {
+  firstinput = false;
+  operation = "5/x";
+  caltext = 5 / input1;
+  setText("Result", caltext);
+});
+
+onEvent("2/x", "click", function( ) {
+  firstinput = false;
+  operation = "2/x";
+  caltext = 2 / input1;
+  setText("Result", caltext);
+});
+
+function factorial(n) {
+  if (n == 1) {
+    return 1;
+  } else {
+    return (n * factorial(n - 1));
+  }
+}
+
+onEvent("x!", "click", function( ) {
+  firstinput = false;
+  operation = "x!";
+  caltext = factorial;
+  setText("Result", factorial(getNumber(input1)));
+});
+
+onEvent("=", "click", function( ) {
+  var val1 = parseInt(input1);
+  var val2 = parseInt(input2);
+  
+  if (operation === "add") {
+    result = val1 + val2;
+  }
+  
+  if (operation === "subtract") {
+    result = val1 - val2;
+  }
+  
+  if (operation === "multiply") {
+    result = val1 * val2;
+  }
+  
+  if (operation === "divide") {
+    result = val1 / val2;
+  }
+  if (val2 == 0) {
+    result = "Error";
+  }
+  
+  var finalcaltext = (getText("Result") + " = ") + result;
+  setText("Result", finalcaltext);
+});
+
+onEvent("C", "click", function( ) {
+  setText("Result", " ");
+  input1 = "";
+  input2 = "";
+  firstinput = true;
+});
