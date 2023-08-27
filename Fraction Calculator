@@ -1,0 +1,84 @@
+function getHCF(x, y){
+    var t=1;
+    while((y!=0)){
+      t=y;
+      y=x%y;
+      x=t;
+    }
+    return(x);
+  }
+
+onEvent("Mul", "click", function( ) {
+  setScreen("Multiplication");
+});
+
+onEvent("BACK", "click", function( ) {
+  setScreen("Fractions");
+});
+
+onEvent("Cal", "click", function( ) {
+  setText("N3", getNumber("N") * getNumber("N2"));
+  setText("D3", getNumber("D") * getNumber("D2"));
+});
+
+onEvent("Div", "click", function( ) {
+  setScreen("Division");
+});
+
+onEvent("BACK2", "click", function( ) {
+  setScreen("Fractions");
+});
+
+onEvent("Cal2", "click", function( ) {
+  setText("N6", getNumber("N4") * getNumber("D5"));
+  setText("D6", getNumber("D4") * getNumber("N5"));
+});
+
+onEvent("Add", "click", function( ) {
+  setScreen("Addition");
+});
+
+onEvent("Cal3", "click", function( ) {
+  var a = getNumber("D7");
+  var b = getNumber("D8");
+  var LCM = 0;
+  if(a && b)
+    LCM =(a*b)/getHCF(a,b);
+  setNumber("D9",LCM);
+  setText("N9", (LCM / getNumber("D7")) * getNumber("N7") + (LCM / getNumber("D8")) * getNumber("N8"));
+});
+
+onEvent("BACK3", "click", function( ) {
+  setScreen("Fractions");
+});
+
+onEvent("Sub", "click", function( ) {
+  setScreen("Subtraction");
+});
+
+onEvent("BACK4", "click", function( ) {
+  setScreen("Fractions");
+});
+
+onEvent("Cal4", "click", function( ) {
+  var c = getNumber("D10");
+  var d = getNumber("D11");
+  var LCM = 0;
+  if(c && d)
+    LCM =(c*d)/getHCF(c,d);
+  setNumber("D12",LCM);
+  setText("N12", (LCM / getNumber("D10")) * getNumber("N10") - (LCM / getNumber("D11")) * getNumber("N11"));
+});
+
+onEvent("Equ", "click", function( ) {
+  setScreen("EV1");
+});
+
+onEvent("BACK5", "click", function( ) {
+  setScreen("Fractions");
+});
+
+onEvent("Cal5", "click", function( ) {
+  setText("N14", getNumber("N13") * getNumber("EV"));
+  setText("D14", getNumber("D13") * getNumber("EV"));
+});
