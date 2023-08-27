@@ -1,0 +1,807 @@
+onEvent("Start", "click", function( ) {
+  setScreen("Options");
+});
+
+onEvent("Length", "click", function( ) {
+  setScreen("Length_1");
+});
+
+onEvent("Millimetre", "input", function( ) {
+  setText("Centimetre", getNumber("Millimetre") / 10);
+  setText("Decimetre", getNumber("Millimetre") / 100);
+  setText("Metre", getNumber("Millimetre") / 1000);
+  setText("Decametre", getNumber("Millimetre") / 10000);
+  setText("Hectometre", getNumber("Millimetre") / 100000);
+  setText("Kilometre", getNumber("Millimetre") / 1000000);
+});
+
+onEvent("Centimetre", "input", function( ) {
+  setText("Millimetre", getNumber("Centimetre") * 10);
+  setText("Decimetre", getNumber("Centimetre") / 10);
+  setText("Metre", getNumber("Centimetre") / 100);
+  setText("Decametre", getNumber("Centimetre") / 1000);
+  setText("Hectometre", getNumber("Centimetre") / 10000);
+  setText("Kilometre", getNumber("Centimetre") / 100000);
+});
+
+onEvent("Decimetre", "input", function( ) {
+  setText("Millimetre", getNumber("Decimetre") * 100);
+  setText("Centimetre", getNumber("Decimetre") * 10);
+  setText("Metre", getNumber("Decimetre") / 10);
+  setText("Decametre", getNumber("Decimetre") / 100);
+  setText("Hectometre", getNumber("Decimetre") / 1000);
+  setText("Kilometre", getNumber("Decimetre") / 10000);
+});
+
+onEvent("Metre", "input", function( ) {
+  setText("Millimetre", getNumber("Metre") * 1000);
+  setText("Centimetre", getNumber("Metre") * 100);
+  setText("Decimetre", getNumber("Metre") * 10);
+  setText("Decametre", getNumber("Metre") / 10);
+  setText("Hectometre", getNumber("Metre") / 100);
+  setText("Kilometre", getNumber("Metre") / 1000);
+});
+
+onEvent("Decametre", "input", function( ) {
+  setText("Millimetre", getNumber("Decametre") * 10000);
+  setText("Centimetre", getNumber("Decametre") * 1000);
+  setText("Decimetre", getNumber("Decametre") * 100);
+  setText("Metre", getNumber("Decametre") * 10);
+  setText("Hectometre", getNumber("Decametre") / 10);
+  setText("Kilometre", getNumber("Decametre") / 100);
+});
+
+onEvent("Hectometre", "input", function( ) {
+  setText("Millimetre", getNumber("Hectometre") * 100000);
+  setText("Centimetre", getNumber("Hectometre") * 10000);
+  setText("Decimetre", getNumber("Hectometre") * 1000);
+  setText("Metre", getNumber("Hectometre") * 100);
+  setText("Decametre", getNumber("Hectometre") * 10);
+  setText("Kilometre", getNumber("Hectometre") / 10);
+});
+
+onEvent("Kilometre", "input", function( ) {
+  setText("Millimetre", getNumber("Kilometre") * 1000000);
+  setText("Centimetre", getNumber("Kilometre") * 100000);
+  setText("Decimetre", getNumber("Kilometre") * 10000);
+  setText("Metre", getNumber("Kilometre") * 1000);
+  setText("Decametre", getNumber("Kilometre") * 100);
+  setText("Hectometre", getNumber("Kilometre") * 10);
+});
+
+onEvent("Back", "click", function( ) {
+  setScreen("Options");
+});
+
+onEvent("Mass", "click", function( ) {
+  setScreen("Mass_1");
+});
+
+onEvent("Back1", "click", function( ) {
+  setScreen("Options");
+});
+
+onEvent("Milligram", "input", function( ) {
+  setText("Centigram", getNumber("Milligram") / 10);
+  setText("Decigram", getNumber("Milligram") / 100);
+  setText("Gram", getNumber("Milligram") / 1000);
+  setText("Decagram", getNumber("Milligram") / 10000);
+  setText("Hectogram", getNumber("Milligram") / 100000);
+  setText("Kilogram", getNumber("Milligram") / 1000000);
+  setText("Ton", getNumber("Milligram") / 1000000000);
+  setText("Pounds", getNumber("Milligram") / 453600);
+  setText("Ounce", getNumber("Milligram") / 28350);
+  setText("Stone", getNumber("Milligram") / 6350400);
+});
+
+onEvent("Centigram", "input", function( ) {
+  setText("Milligram", getNumber("Centigram") * 10);
+  setText("Decigram", getNumber("Centigram") / 10);
+  setText("Gram", getNumber("Centigram") / 100);
+  setText("Decagram", getNumber("Centigram") / 1000);
+  setText("Hectogram", getNumber("Centigram") / 10000);
+  setText("Kilogram", getNumber("Centigram") / 100000);
+  setText("Ton", getNumber("Centigram") / 100000000);
+  setText("Pounds", getNumber("Centigram") / 45360);
+  setText("Ounce", getNumber("Centigram") / 2835);
+  setText("Stone", getNumber("Centigram") / 635040);
+});
+
+onEvent("Decigram", "input", function( ) {
+  setText("Milligram", getNumber("Decigram") * 100);
+  setText("Centigram", getNumber("Decigram") * 10);
+  setText("Gram", getNumber("Decigram") / 10);
+  setText("Decagram", getNumber("Decigram") / 100);
+  setText("Hectogram", getNumber("Decigram") / 1000);
+  setText("Kilogram", getNumber("Decigram") / 10000);
+  setText("Ton", getNumber("Decigram") / 10000000);
+  setText("Pounds", getNumber("Decigram") / 4536);
+  setText("Ounce", getNumber("Decigram") / 283.5);
+  setText("Stone", getNumber ("Decigram") / 63504);
+});
+
+onEvent("Gram", "input", function( ) {
+  setText("Milligram", getNumber("Gram") * 1000);
+  setText("Centigram", getNumber("Gram") * 100);
+  setText("Decigram", getNumber("Gram") * 10);
+  setText("Decagram", getNumber("Gram") / 10);
+  setText("Hectogram", getNumber("Gram") / 100);
+  setText("Kilogram", getNumber("Gram") / 1000);
+  setText("Ton", getNumber("Gram") / 1000000);
+  setText("Pounds", getNumber("Gram") / 453.6);
+  setText("Ounce", getNumber("Gram") / 28.35);
+  setText("Stone", getNumber("Gram") / 6350.4);
+});
+
+onEvent("Decagram", "input", function( ) {
+  setText("Milligram", getNumber("Decagram") * 10000);
+  setText("Centigram", getNumber("Decagram") * 1000);
+  setText("Decigram", getNumber("Decagram") * 100);
+  setText("Gram", getNumber("Decagram") * 10);
+  setText("Hectogram", getNumber("Decagram") / 10);
+  setText("Kilogram", getNumber("Decagram") / 100);
+  setText("Ton", getNumber("Decagram") / 100000);
+  setText("Pounds", getNumber("Decagram") / 45.36);
+  setText("Ounce", getNumber("Decagram") / 2.835);
+  setText("Stone", getNumber("Decagram") / 635.04);
+});
+
+onEvent("Hectogram", "input", function( ) {
+  setText("Millligram", getNumber("Hectogram") * 100000);
+  setText("Centigram", getNumber("Hectogram") * 10000);
+  setText("Decigram", getNumber("Hectogram") * 1000);
+  setText("Gram", getNumber("Hectogram") * 100);
+  setText("Decagram", getNumber("Hectogram") * 10);
+  setText("Kilogram", getNumber("Hectogram") / 10);
+  setText("Ton", getNumber("Hectogram") / 10000);
+  setText("Pounds", getNumber("Hectogram") / 4.536);
+  setText("Ounce", getNumber("Hectogram") * 3.52);
+  setText("Stone", getNumber("Hectogram") / 63.503);
+});
+
+onEvent("Kilogram", "input", function( ) {
+  setText("Milligram", getNumber("Kilogram") * 1000000);
+  setText("Centigram", getNumber("Kilogram") * 100000);
+  setText("Decigram", getNumber("Kilogram") * 10000);
+  setText("Gram", getNumber("Kilogram") * 1000);
+  setText("Decagram", getNumber("Kilogram") * 100);
+  setText("Hectogram", getNumber("Kilogram") * 10);
+  setText("Ton", getNumber("Kilogram") / 1000);
+  setText("Pounds", getNumber("Kilogram") * 2.205);
+  setText("Ounce", getNumber("Kilogram") * 35.274);
+  setText("Stone", getNumber("Kilogram") / 6.35);
+});
+
+onEvent("Ton", "input", function( ) {
+  setText("Milligram", getNumber("Ton") * 1000000000);
+  setText("Centigram", getNumber("Ton") * 100000000);
+  setText("Decigram", getNumber("Ton") * 10000000);
+  setText("Gram", getNumber("Ton") * 1000000);
+  setText("Decagram", getNumber("Ton") * 100000);
+  setText("Hectogram", getNumber("Ton") * 10000);
+  setText("Kilogram", getNumber("Ton") * 1000);
+  setText("Pounds", getNumber("Ton") * 2205);
+  setText("Ounce", getNumber("Ton") * 35274);
+  setText("Stone", getNumber("Ton") * 157);
+});
+
+onEvent("Pounds", "input", function( ) {
+  setText("Milligram", getNumber("Pounds") * 453600);
+  setText("Centigram", getNumber("Pounds") * 45360);
+  setText("Decigram", getNumber("Pounds") * 4536);
+  setText("Gram", getNumber("Pounds") * 453.6);
+  setText("Decagram", getNumber("Pounds") * 45.36);
+  setText("Hectogram", getNumber("Pounds") * 4.536);
+  setText("Kilogram", getNumber("Pounds") / 2.205);
+  setText("Ton", getNumber("Pounds") / 2205);
+  setText("Ounce", getNumber("Pounds") * 16);
+  setText("Stone", getNumber("Pounds") / 14);
+});
+
+onEvent("Ounce", "input", function( ) {
+  setText("Milligram", getNumber("Ounce") * 28350);
+  setText("Centigram", getNumber("Ounce") * 2835);
+  setText("Decigram", getNumber("Ounce") * 283.5);
+  setText("Gram", getNumber("Ounce") * 28.35);
+  setText("Decagram", getNumber("Ounce") * 2.835);
+  setText("Hectogram", getNumber("Ounce") / 3.5274);
+  setText("Kilogram", getNumber("Ounce") / 35.274);
+  setText("Ton", getNumber("Ounce") / 35274);
+  setText("Pounds", getNumber("Ounce") / 16);
+  setText("Stone", getNumber("Ounce") / 224);
+});
+
+onEvent("Stone", "input", function( ) {
+  setText("Milligram", getNumber("Stone") * 6350293.18);
+  setText("Centigram", getNumber("Stone") * 635029.318);
+  setText("Decigram", getNumber("Stone") * 63502.9318);
+  setText("Gram", getNumber("Stone") * 6350.29318);
+  setText("Decagram", getNumber("Stone") * 635.029318);
+  setText("Hectogram", getNumber("Stone") * 63.5029318);
+  setText("Kilogram", getNumber("Stone") * 6.35029318);
+  setText("Ton", getNumber("Stone") / 157.5);
+  setText("Pounds", getNumber("Stone") * 14);
+  setText("Ounce", getNumber("Stone") * 224);
+});
+
+onEvent("cap", "click", function( ) {
+  setScreen("Capacity_1");
+});
+
+onEvent("Back2", "click", function( ) {
+  setScreen("Options");
+});
+
+onEvent("Millilitre", "input", function( ) {
+  setText("Centilitre", getNumber("Millilitre") / 10);
+  setText("Decilitre", getNumber("Millilitre") / 100);
+  setText("Litre", getNumber("Millilitre") / 1000);
+  setText("Decalitre", getNumber("Millilitre") / 10000);
+  setText("Hectolitre", getNumber("Millilitre") / 100000);
+  setText("Kilolitre", getNumber("Millilitre") / 1000000);
+});
+
+onEvent("Centilitre", "input", function( ) {
+  setText("Millilitre", getNumber("Centilitre") * 10);
+  setText("Decilitre", getNumber("Centilitre") / 10);
+  setText("Litre", getNumber("Centilitre") / 100);
+  setText("Decalitre", getNumber("Centilitre") / 1000);
+  setText("Hectolitre", getNumber("Centilitre") / 10000);
+  setText("Kilolitre", getNumber("Centilitre") / 100000);
+});
+
+onEvent("Decilitre", "input", function( ) {
+  setText("Millilitre", getNumber("Decilitre") * 100);
+  setText("Centilitre", getNumber("Decilitre") * 10);
+  setText("Litre", getNumber("Decilitre") / 10);
+  setText("Decalitre", getNumber("Decilitre") / 100);
+  setText("Hectolitre", getNumber("Decilitre") / 1000);
+  setText("Kilolitre", getNumber("Decilitre") / 10000);
+});
+
+onEvent("Litre", "input", function( ) {
+  setText("Millilitre", getNumber("Litre") * 1000);
+  setText("Centilitre", getNumber("Litre") * 100);
+  setText("Decilitre", getNumber("Litre") * 10);
+  setText("Decalitre", getNumber("Litre") / 10);
+  setText("Hectolitre", getNumber("Litre") / 100);
+  setText("Kilolitre", getNumber("Litre") / 1000);
+});
+
+onEvent("Decalitre", "input", function( ) {
+  setText("Millilitre", getNumber("Decalitre") * 10000);
+  setText("Centilitre", getNumber("Decalitre") * 1000);
+  setText("Decilitre", getNumber("Decalitre") * 100);
+  setText("Litre", getNumber("Decalitre") * 10);
+  setText("Hectolitre", getNumber("Decalitre") / 10);
+  setText("Kilolitre", getNumber("Decalitre") / 100);
+});
+
+onEvent("Hectolitre", "input", function( ) {
+  setText("Millilitre", getNumber("Hectolitre") * 100000);
+  setText("Centilitre", getNumber("Hectolitre") * 10000);
+  setText("Decilitre", getNumber("Hectolitre") * 1000);
+  setText("Litre", getNumber("Hectolitre") * 100);
+  setText("Decalitre", getNumber("Hectolitre") * 10);
+  setText("Kilolitre", getNumber("Hectolitre") / 10);
+});
+
+onEvent("Kilolitre", "input", function( ) {
+  setText("Millilitre", getNumber("Kilolitre") * 1000000);
+  setText("Centilitre", getNumber("Kilolitre") * 100000);
+  setText("Decilitre", getNumber("Kilolitre") * 10000);
+  setText("Litre", getNumber("Kilolitre") * 1000);
+  setText("Decalitre", getNumber("Kilolitre") * 100);
+  setText("Hectolitre", getNumber("Kilolitre") * 10);
+});
+
+onEvent("Time", "click", function( ) {
+  setScreen("Time_1");
+});
+
+onEvent("Nanosecond", "input", function( ) {
+  setText("Microsecond", getNumber("Nanosecond") / 1000);
+  setText("Millisecond", getNumber("Nanosecond") / 1000000);
+  setText("Second", getNumber("Nanosecond") / 1000000000);
+  setText("Minute", getNumber("Nanosecond") / 60000000000);
+  setText("Hour", getNumber("Nanosecond") / 3600000000000);
+  setText("Day", getNumber("Nanosecond") / 86400000000000);
+  setText("Week", getNumber("Nanosecond") / 604800000000000);
+});
+
+onEvent("Microsecond", "input", function( ) {
+  setText("Nanosecond", getNumber("Microsecond") * 1000);
+  setText("Millisecond", getNumber("Microsecond") / 1000);
+  setText("Second", getNumber("Microsecond") / 1000000);
+  setText("Minute", getNumber("Microsecond") / 60000000);
+  setText("Hour", getNumber("Microsecond") / 3600000000);
+  setText("Day", getNumber("Microsecond") / 86400000000);
+  setText("Week", getNumber("Microsecond") / 604800000000);
+});
+
+onEvent("Millisecond", "input", function( ) {
+  setText("Nanosecond", getNumber("Millisecond") * 1000000);
+  setText("Microsecond", getNumber("Millisecond") * 1000);
+  setText("Second", getNumber("Millisecond") / 1000);
+  setText("Minute", getNumber("Millisecond") / 60000);
+  setText("Hour", getNumber("Millisecond") / 3600000);
+  setText("Day", getNumber("Millisecond") / 86400000);
+  setText("Week", getNumber("Millisecond") / 604800000);
+});
+
+onEvent("Second", "input", function( ) {
+  setText("Nanosecond", getNumber("Second") * 1000000000);
+  setText("Microsecond", getNumber("Second") * 1000000);
+  setText("Millisecond", getNumber("Second") * 1000);
+  setText("Minute", getNumber("Second") / 60);
+  setText("Hour", getNumber("Second") / 3600);
+  setText("Day", getNumber("Second") / 86400);
+  setText("Week", getNumber("Second") / 604800);
+});
+
+onEvent("Minute", "input", function( ) {
+  setText("Nanosecond", getNumber("Minute") * 60000000000);
+  setText("Microsecond", getNumber("Minute") * 60000000);
+  setText("Millisecond", getNumber("Minute") * 60000);
+  setText("Second", getNumber("Minute") * 60);
+  setText("Hour", getNumber("Minute") / 60);
+  setText("Day", getNumber("Minute") / 1440);
+  setText("Week", getNumber("Minute") / 10080);
+});
+
+onEvent("Hour", "input", function( ) {
+  setText("Nanosecond", getNumber("Hour") * 3600000000000);
+  setText("Microsecond", getNumber("Hour") * 3600000000);
+  setText("Millisecond", getNumber("Hour") * 3600000);
+  setText("Second", getNumber("Hour") * 3600);
+  setText("Minute", getNumber("Hour") * 60);
+  setText("Day", getNumber("Hour") / 24);
+  setText("Week", getNumber("Hour") / 168);
+});
+
+onEvent("Day", "input", function( ) {
+  setText("Nanosecond", getNumber("Day") * 86400000000000);
+  setText("Microsecond", getNumber("Day") * 86400000000);
+  setText("Millisecond", getNumber("Day") * 86400000);
+  setText("Second", getNumber("Day") * 86400);
+  setText("Minute", getNumber("Day") * 1440);
+  setText("Hour", getNumber("Day") * 24);
+  setText("Week", getNumber("Day") / 7);
+});
+
+onEvent("Week", "input", function( ) {
+  setText("Nanosecond", getNumber("Week") * 604800000000000);
+  setText("Microsecond", getNumber("Week") * 604800000000);
+  setText("Millisecond", getNumber("Week") * 604800000);
+  setText("Second", getNumber("Week") * 604800);
+  setText("Minute", getNumber("Week") * 10080);
+  setText("Hour", getNumber("Week") * 168);
+  setText("Day", getNumber("Week") * 7);
+});
+
+onEvent("button3", "click", function( ) {
+  setScreen("Options");
+});
+
+onEvent("button1", "click", function( ) {
+  setScreen("Time_2");
+});
+
+onEvent("button2", "click", function( ) {
+  setScreen("Time_1");
+});
+
+onEvent("Month", "input", function( ) {
+  setText("Year", getNumber("Month") / 12);
+  setText("Decade", getNumber("Month") / 120);
+  setText("Century", getNumber("Month") / 1200);
+  setText("Millennium", getNumber("Month") / 12000);
+  setText("Eon", getNumber("Month") / 12000000000);
+});
+
+onEvent("Year", "input", function( ) {
+  setText("Month", getNumber("Year") * 12);
+  setText("Decade", getNumber("Year") / 10);
+  setText("Century", getNumber("Year") / 100);
+  setText("Millennium", getNumber("Year") / 1000);
+  setText("Eon", getNumber("Year") / 1000000000);
+});
+
+onEvent("Decade", "input", function( ) {
+  setText("Month", getNumber("Decade") * 120);
+  setText("Year", getNumber("Decade") * 10);
+  setText("Century", getNumber("Decade") / 10);
+  setText("Millennium", getNumber("Decade") / 100);
+  setText("Eon", getNumber("Decade") / 100000000);
+});
+
+onEvent("Century", "input", function( ) {
+  setText("Month", getNumber("Century") * 1200);
+  setText("Year", getNumber("Century") * 100);
+  setText("Decade", getNumber("Century") * 10);
+  setText("Millennium", getNumber("Century") / 10);
+  setText("Eon", getNumber("Century") / 10000000);
+});
+
+onEvent("Millennium", "input", function( ) {
+  setText("Month", getNumber("Millennium") * 12000);
+  setText("Year", getNumber("Millennium") * 1000);
+  setText("Decade", getNumber("Millennium") * 1000);
+  setText("Century", getNumber("Millennium") * 10);
+  setText("Eon", getNumber("Millennium") / 1000000);
+});
+
+onEvent("Eon", "input", function( ) {
+  setText("Month", getNumber("Eon") * 12000000000);
+  setText("Year", getNumber("Eon") * 1000000000);
+  setText("Decade", getNumber("Eon") * 100000000);
+  setText("Century", getNumber("Eon") * 10000000);
+  setText("Millennium", getNumber("Eon") * 1000000);
+});
+
+onEvent("Temperature", "click", function( ) {
+  setScreen("Temperature_1");
+});
+
+onEvent("back", "click", function( ) {
+  setScreen("Options");
+});
+
+onEvent("Celsius", "input", function( ) {
+  setText("Fahrenheit", getNumber("Celsius") * (9 / 5) + 32);
+  setText("Kelvin", getNumber("Celsius") + 273.15);
+});
+
+onEvent("Fahrenheit", "input", function( ) {
+  setText("Celsius", (getNumber("Fahrenheit") - 32) * (5 / 9));
+  setText("Kelvin", (getNumber("Fahrenheit") - 32) * (5 / 9) + 273.15);
+});
+
+onEvent("Kelvin", "input", function( ) {
+  setText("Celsius", getNumber("Kelvin") - 273.15);
+  setText("Fahrenheit", (getNumber("Kelvin") - 273.15) * (9 / 5) + 32);
+});
+
+onEvent("Digital_Storage", "click", function( ) {
+  setScreen("Digital_Storage_1");
+});
+
+onEvent("bit", "input", function( ) {
+  setText("byte", getNumber("bit") / 8);
+  setText("kilobyte", getNumber("bit") / 8192);
+  setText("megabyte", getNumber("bit") / 8388608);
+  setText("gb", getNumber("bit") / 8589934592);
+  setText("tb", getNumber("bit") / 8796093022208);
+  setText("pb", getNumber("bit") / 9007199254740992);
+});
+
+onEvent("byte", "input", function( ) {
+  setText("bit", getNumber("byte") * 8);
+  setText("kilobyte", getNumber("byte") / 1024);
+  setText("megabyte", getNumber("byte") / 1048576);
+  setText("gb", getNumber("byte") / 1073741824);
+  setText("tb", getNumber("byte") / 1099511627776);
+  setText("pb", getNumber("byte") / 1125899906842624);
+});
+
+onEvent("kilobyte", "input", function( ) {
+  setText("bit", getNumber("kilobyte") * 8192);
+  setText("byte", getNumber("kilobyte") * 1024);
+  setText("megabyte", getNumber("kilobyte") / 1024);
+  setText("gb", getNumber("kilobyte") / 1048576);
+  setText("tb", getNumber("kilobyte") / 1073741824);
+  setText("pb", getNumber("kilobyte") / 1099511627776);
+});
+
+onEvent("megabyte", "input", function( ) {
+  setText("bit", getNumber("megabyte") * 8388608);
+  setText("byte", getNumber("megabyte") * 1048576);
+  setText("kilobyte", getNumber("megabyte") * 1024);
+  setText("gb", getNumber("megabyte") / 1024);
+  setText("tb", getNumber("megabyte") / 1048576);
+  setText("pb", getNumber("megabyte") / 1073741824);
+});
+
+onEvent("gb", "input", function( ) {
+  setText("bit", getNumber("gb") * 8589934592);
+  setText("byte", getNumber("gb") * 1073741824);
+  setText("kilobyte", getNumber("gb") * 1048576);
+  setText("megabyte", getNumber("gb") * 1024);
+  setText("tb", getNumber("gb") / 1024);
+  setText("pb", getNumber("gb") / 1048576);
+});
+
+onEvent("tb", "input", function( ) {
+  setText("bit", getNumber("tb") * 8796093022208);
+  setText("byte", getNumber("tb") * 1099511627776);
+  setText("kilobyte", getNumber("tb") * 1073741824);
+  setText("megabyte", getNumber("tb") * 1048576);
+  setText("gb", getNumber("tb") * 1024);
+  setText("pb", getNumber("tb") / 1024);
+});
+
+onEvent("pb", "input", function( ) {
+  setText("bit", getNumber("pb") * 9007199254740992);
+  setText("byte", getNumber("pb") * 1125899906842624);
+  setText("kilobyte", getNumber("pb") * 1099511627776);
+  setText("megabyte", getNumber("pb") * 1073741824);
+  setText("gb", getNumber("pb") * 1048576);
+  setText("tb", getNumber("pb") * 1024);
+});
+
+onEvent("button7", "click", function( ) {
+  setScreen("Options");
+});
+
+onEvent("Pressure", "click", function( ) {
+  setScreen("Pressure_1");
+});
+
+onEvent("Bar", "input", function( ) {
+  setText("Pascal", getNumber("Bar") * 100000);
+  setText("PSI", getNumber("Bar") * 14.504);
+  setText("Torr", getNumber("Bar") * 750.062);
+  setText("SA", getNumber("Bar") / 1.013);
+});
+
+onEvent("Pascal", "input", function( ) {
+  setText("Bar", getNumber("Pascal") / 100000);
+  setText("PSI", getNumber("Pascal") / 6895);
+  setText("Torr", getNumber("Pascal") / 133);
+  setText("SA", getNumber("Pascal") / 101325);
+});
+
+onEvent("PSI", "input", function( ) {
+  setText("Bar", getNumber("PSI") / 14.504);
+  setText("Pascal", getNumber("PSI") * 6895);
+  setText("SA", getNumber("PSI") / 14.696);
+  setText("Torr", getNumber("PSI") * 51.715);
+});
+
+onEvent("SA", "input", function( ) {
+  setText("Bar", getNumber("SA") * 1.013);
+  setText("Pascal", getNumber("SA") * 101325);
+  setText("PSI", getNumber("SA") * 14.696);
+  setText("Torr", getNumber("SA") * 760);
+});
+
+onEvent("Torr", "input", function( ) {
+  setText("Bar", getNumber("Torr") / 750);
+  setText("Pascal", getNumber("Torr") * 133);
+  setText("PSI", getNumber("Torr") / 51.715);
+  setText("SA", getNumber("Torr") / 760);
+});
+
+onEvent("button4", "click", function( ) {
+  setScreen("Options");
+});
+
+onEvent("Frequency", "click", function( ) {
+  setScreen("Frequency_1");
+});
+
+onEvent("button6", "click", function( ) {
+  setScreen("Options");
+});
+
+onEvent("Hertz", "input", function( ) {
+  setText("Kilohertz", getNumber("Hertz") / 1000);
+  setText("Megahertz", getNumber("Hertz") / 1000000);
+  setText("Gigahertz", getNumber("Hertz") / 1000000000);
+});
+
+onEvent("Kilohertz", "input", function( ) {
+  setText("Hertz", getNumber("Kilohertz") * 1000);
+  setText("Megahertz", getNumber("Kilohertz") / 1000);
+  setText("Gigahertz", getNumber("Kilohertz") / 1000000);
+});
+
+onEvent("Megahertz", "input", function( ) {
+  setText("Hertz", getNumber("Megahertz") * 1000000);
+  setText("Kilohertz", getNumber("Megahertz") * 1000);
+  setText("Gigahertz", getNumber("Megahertz") / 1000);
+});
+
+onEvent("Gigahertz", "input", function( ) {
+  setText("Hertz", getNumber("Gigahertz") * 1000000000);
+  setText("Kilohertz", getNumber("Gigahertz") * 1000000);
+  setText("Megahertz", getNumber("Gigahertz") * 1000);
+});
+
+onEvent("Energy", "click", function( ) {
+  setScreen("Energy_1");
+});
+
+onEvent("Joule", "input", function( ) {
+  setText("Kilojoule", getNumber("Joule") / 1000);
+  setText("CAL", getNumber("Joule") / 4.184);
+  setText("KCAL", getNumber("Joule") / 4184);
+  setText("Watt_Hour", getNumber("Joule") / 3600);
+  setText("KWH", getNumber("Joule") / 3600000);
+});
+
+onEvent("Kilojoule", "input", function( ) {
+  setText("Joule", getNumber("Kilojoule") * 1000);
+  setText("CAL", getNumber("Kilojoule") * 239);
+  setText("KCAL", getNumber("Kilojoule") / 4.184);
+  setText("Watt_Hour", getNumber("Kilojoule") / 3.6);
+  setText("KWH", getNumber("Kilojoule") / 3600);
+});
+
+onEvent("CAL", "input", function( ) {
+  setText("Joule", getNumber("CAL") * 4.184);
+  setText("Kilojoule", getNumber("CAL") / 239);
+  setText("KCAL", getNumber("CAL") / 1000);
+  setText("Watt_Hour", getNumber("CAL") / 860);
+  setText("KWH", getNumber("CAL") / 860421);
+});
+
+onEvent("KCAL", "input", function( ) {
+  setText("Joule", getNumber("KCAL") * 4184);
+  setText("Kilojoule", getNumber("KCAL") * 4.184);
+  setText("CAL", getNumber("KCAL") * 1000);
+  setText("Watt_Hour", getNumber("KCAL") * 1.162);
+  setText("KWH", getNumber("KCAL") / 860);
+});
+
+onEvent("Watt_Hour", "input", function( ) {
+  setText("Joule", getNumber("Watt_Hour") * 3600);
+  setText("Kilojoule", getNumber("Watt_Hour") * 3.6);
+  setText("CAL", getNumber("Watt_Hour") * 860);
+  setText("KCAL", getNumber("Watt_Hour") / 1.162);
+  setText("KWH", getNumber("Watt_Hour") / 1000);
+});
+
+onEvent("KWH", "input", function( ) {
+  setText("Joule", getNumber("KWH") * 3600000);
+  setText("Kilojoule", getNumber("KWH") * 3600);
+  setText("CAL", getNumber("KWH") * 860421);
+  setText("KCAL", getNumber("KWH") * 860);
+  setText("Watt_Hour", getNumber("KWH") * 1000);
+});
+
+onEvent("button9", "click", function( ) {
+  setScreen("Options");
+});
+
+onEvent("Area", "click", function( ) {
+  setScreen("Area_1");
+});
+
+onEvent("button10", "click", function( ) {
+  setScreen("Options");
+});
+
+onEvent("SQ_MM", "input", function( ) {
+  setText("SQ_CM", getNumber("SQ_MM") / 100);
+  setText("SQ_DM", getNumber("SQ_MM") / 10000);
+  setText("SQ_M", getNumber("SQ_MM") / 1000000);
+  setText("SQ_DAM", getNumber("SQ_MM") / 100000000);
+  setText("SQ_HM", getNumber("SQ_MM") / 10000000000);
+  setText("SQ_KM", getNumber("SQ_MM") / 1000000000000);
+});
+
+onEvent("SQ_CM", "input", function( ) {
+  setText("SQ_MM", getNumber("SQ_CM") * 100);
+  setText("SQ_DM", getNumber("SQ_CM") / 100);
+  setText("SQ_M", getNumber("SQ_CM") / 10000);
+  setText("SQ_DAM", getNumber("SQ_CM") / 1000000);
+  setText("SQ_HM", getNumber("SQ_CM") / 100000000);
+  setText("SQ_KM", getNumber("SQ_CM") / 10000000000);
+});
+
+onEvent("SQ_DM", "input", function( ) {
+  setText("SQ_MM", getNumber("SQ_DM") * 10000);
+  setText("SQ_CM", getNumber("SQ_DM") * 100);
+  setText("SQ_M", getNumber("SQ_DM") / 100);
+  setText("SQ_DAM", getNumber("SQ_DM") / 10000);
+  setText("SQ_HM", getNumber("SQ_DM") / 1000000);
+  setText("SQ_KM", getNumber("SQ_DM") / 100000000);
+});
+
+onEvent("SQ_M", "input", function( ) {
+  setText("SQ_MM", getNumber("SQ_M") * 1000000);
+  setText("SQ_CM", getNumber("SQ_M") * 10000);
+  setText("SQ_DM", getNumber("SQ_M") * 100);
+  setText("SQ_DAM", getNumber("SQ_M") / 100);
+  setText("SQ_HM", getNumber("SQ_M") / 10000);
+  setText("SQ_KM", getNumber("SQ_M") / 1000000);
+});
+
+onEvent("SQ_DAM", "input", function( ) {
+  setText("SQ_MM", getNumber("SQ_DAM") * 100000000);
+  setText("SQ_CM", getNumber("SQ_DAM") * 1000000);
+  setText("SQ_DM", getNumber("SQ_DAM") * 10000);
+  setText("SQ_M", getNumber("SQ_DAM") * 100);
+  setText("SQ_HM", getNumber("SQ_DAM") / 100);
+  setText("SQ_KM", getNumber("SQ_DAM") / 10000);
+});
+
+onEvent("SQ_HM", "input", function( ) {
+  setText("SQ_MM", getNumber("SQ_HM") * 10000000000);
+  setText("SQ_CM", getNumber("SQ_HM") * 100000000);
+  setText("SQ_DM", getNumber("SQ_HM") * 1000000);
+  setText("SQ_M", getNumber("SQ_HM") * 10000);
+  setText("SQ_DAM", getNumber("SQ_HM") * 100);
+  setText("SQ_KM", getNumber("SQ_HM") / 100);
+});
+
+onEvent("SQ_KM", "input", function( ) {
+  setText("SQ_MM", getNumber("SQ_KM") * 1000000000000);
+  setText("SQ_CM", getNumber("SQ_KM") * 10000000000);
+  setText("SQ_DM", getNumber("SQ_KM") * 100000000);
+  setText("SQ_M", getNumber("SQ_KM") * 1000000);
+  setText("SQ_DAM", getNumber("SQ_KM") * 10000);
+  setText("SQ_HM", getNumber("SQ_KM") * 100);
+});
+
+onEvent("Volume", "click", function( ) {
+  setScreen("Volume_1");
+});
+
+onEvent("button11", "click", function( ) {
+  setScreen("Options");
+});
+
+onEvent("CU_MM", "input", function( ) {
+  setText("CU_CM", getNumber("CU_MM") / 1000);
+  setText("CU_DM", getNumber("CU_MM") / 1000000);
+  setText("CU_M", getNumber("CU_MM") / 1000000000);
+  setText("CU_DAM", getNumber("CU_MM") / 1000000000000);
+  setText("CU_HM", getNumber("CU_MM") / 1000000000000000);
+  setText("CU_KM", getNumber("CU_MM") / 1000000000000000000);
+});
+
+onEvent("CU_CM", "input", function( ) {
+  setText("CU_MM", getNumber("CU_CM") * 1000);
+  setText("CU_DM", getNumber("CU_CM") / 1000);
+  setText("CU_M", getNumber("CU_CM") / 1000000);
+  setText("CU_DAM", getNumber("CU_CM") / 1000000000);
+  setText("CU_HM", getNumber("CU_CM") / 1000000000000);
+  setText("CU_KM", getNumber("CU_CM") / 1000000000000000);
+});
+
+onEvent("CU_DM", "input", function( ) {
+  setText("CU_MM", getNumber("CU_DM") * 1000000);
+  setText("CU_CM", getNumber("CU_DM") * 1000);
+  setText("CU_M", getNumber("CU_DM") / 1000);
+  setText("CU_DAM", getNumber("CU_DM") / 1000000);
+  setText("CU_HM", getNumber("CU_DM") / 1000000000);
+  setText("CU_KM", getNumber("CU_DM") / 1000000000000);
+});
+
+onEvent("CU_M", "input", function( ) {
+  setText("CU_MM", getNumber("CU_M") * 1000000000);
+  setText("CU_CM", getNumber("CU_M") * 1000000);
+  setText("CU_DM", getNumber("CU_M") * 1000);
+  setText("CU_DAM", getNumber("CU_M") / 1000);
+  setText("CU_HM", getNumber("CU_M") / 1000000);
+  setText("CU_KM", getNumber("CU_M") / 1000000000);
+});
+
+onEvent("CU_DAM", "input", function( ) {
+  setText("CU_MM", getNumber("CU_DAM") * 1000000000000);
+  setText("CU_CM", getNumber("CU_DAM") * 1000000000);
+  setText("CU_DM", getNumber("CU_DAM") * 1000000);
+  setText("CU_M", getNumber("CU_DAM") * 1000);
+  setText("CU_HM", getNumber("CU_DAM") / 1000);
+  setText("CU_KM", getNumber("CU_DAM") / 1000000);
+});
+
+onEvent("CU_HM", "input", function( ) {
+  setText("CU_MM", getNumber("CU_HM") * 1000000000000000);
+  setText("CU_CM", getNumber("CU_HM") * 1000000000000);
+  setText("CU_DM", getNumber("CU_HM") * 1000000000);
+  setText("CU_M", getNumber("CU_HM") * 1000000);
+  setText("CU_DAM", getNumber("CU_HM") * 1000);
+  setText("CU_KM", getNumber("CU_HM") / 1000);
+});
+
+onEvent("CU_KM", "input", function( ) {
+  setText("CU_MM", getNumber("CU_KM") * 1000000000000000000);
+  setText("CU_CM", getNumber("CU_KM") * 1000000000000000);
+  setText("CU_DM", getNumber("CU_KM") * 1000000000000);
+  setText("CU_M", getNumber("CU_KM") * 1000000000);
+  setText("CU_DAM", getNumber("CU_KM") * 1000000);
+  setText("CU_HM", getNumber("CU_KM") * 1000);
+});
