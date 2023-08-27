@@ -1,0 +1,41 @@
+onEvent("NEXT", "click", function( ) {
+  setScreen("HCF&LCM2");
+});
+
+onEvent("BACK", "click", function( ) {
+  setScreen("HCF&LCM");
+});
+
+
+function getHCF(x, y){
+    var t=1;
+    while((y!=0)){
+      t=y;
+      y=x%y;
+      x=t;
+    }
+    return(x);
+  }
+onEvent("Calculate","click",function(){
+  var a = getNumber("1st");
+  var b = getNumber("2nd");
+  var c = getNumber("3rd");
+  var HCF = 1;
+  if(a && b)
+    HCF=getHCF(a, b);
+  if(c)
+    HCF=getHCF(HCF, c);
+  setNumber("Output",HCF);
+});
+
+onEvent("Calculate2","click",function(){
+  var d = getNumber("4th");
+  var e = getNumber("5th");
+  var f = getNumber("6th");
+  var LCM = 0;
+  if(d && e)
+    LCM =(d*e)/getHCF(d,e);
+  if(f)
+    LCM=(f*LCM)/getHCF(LCM,f);
+  setNumber("Output2",LCM);
+});
