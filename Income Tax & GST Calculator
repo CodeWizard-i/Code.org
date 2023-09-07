@@ -1,0 +1,63 @@
+onEvent("Start", "click", function( ) {
+  setScreen("Taxes");
+});
+
+onEvent("IT", "click", function( ) {
+  setScreen("IT-1");
+});
+
+onEvent("BACK", "click", function( ) {
+  setScreen("Taxes");
+});
+
+onEvent("Calculate", "click", function( ) {
+  if (300001 > getNumber("Income")) {
+    setText("Tax", "0");
+    setText("Tax1", "0");
+    setText("Amount", 0 + getNumber("Income"));
+  }
+  
+  if (getNumber("Income") > 300000) {
+    setText("Tax", "5");
+    setText("Tax1", (getNumber("Income") / 100) * 5);
+    setText("Amount", getNumber("Income") - getNumber("Tax1"));
+  }
+  
+  if (getNumber("Income") > 600000) {
+    setText("Tax", "10");
+    setText("Tax1", (getNumber("Income") / 100) * 10);
+    setText("Amount", getNumber("Income") - getNumber("Tax1"));
+  }
+  
+  if (getNumber("Income") > 900000) {
+    setText("Tax", "15");
+    setText("Tax1", (getNumber("Income") / 100) * 15);
+    setText("Amount", getNumber("Income") - getNumber("Tax1"));
+  }
+  
+  if (getNumber("Income") > 1200000) {
+    setText("Tax", "20");
+    setText("Tax1", (getNumber("Income") / 100) * 20);
+    setText("Amount", getNumber("Income") - getNumber("Tax1"));
+  }
+  
+  if (getNumber("Income") > 1500000) {
+    setText("Tax", "30");
+    setText("Tax1", (getNumber("Income") / 100) * 30);
+    setText("Amount", getNumber("Income") - getNumber("Tax1"));
+  }
+});
+
+onEvent("GST", "click", function( ) {
+  setScreen("GST-1");
+});
+
+onEvent("Back", "click", function( ) {
+  setScreen("Taxes");
+});
+
+onEvent("Calculate2", "click", function( ) {
+  setText("Tax3", (getNumber("Price") / 100) * getNumber("Tax2"));
+  setText("MRP", getNumber("Price") + getNumber("Tax3"));
+});
+
