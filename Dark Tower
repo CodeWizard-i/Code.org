@@ -1,0 +1,859 @@
+
+//devtools
+var cameraxvel = 10000;
+var camerayvel = 10000;
+
+//sprite things
+{
+var outcornersprite;
+var incornersprite;
+var vertwallsprite;
+var fullcornersprite;
+var tricornersprite;
+var underspike;
+var tricornercornersprite;
+var duocornersprite;
+var sawsprite;
+}
+//background
+{
+var titlebackground=createSprite(10060, 10250);
+titlebackground.setAnimation("titlescreen");
+titlebackground.scale=4;
+var titlebutton=createSprite(10060, 10400);
+titlebutton.setAnimation("playbutton");
+
+var nonforeground=createSprite();
+var nonforeground2=createSprite();
+}
+//text
+{
+var controltext=createSprite(70, 280);
+controltext.setAnimation("controltext");
+controltext.scale=1.5;
+var checkpointtext=createSprite(210, -55);
+checkpointtext.setAnimation("checkpointtext");
+checkpointtext.scale=1.5;
+var ducktext=createSprite(1150, -760);
+ducktext.setAnimation("ducktext");
+ducktext.scale=1.5;
+}
+//miscellaneous variables
+{
+var swingtimer=0;
+var canmove=0;
+var spawnx=60;
+var spawny=330;
+playSound("Cursedsnake---Stride-(1).mp3", true);
+var starcount = 0;
+World.frameRate = 35;
+var speed = 5;
+var jumpForce = 10;
+var gravity = 1;
+var swingtimer=0;
+var touchingGround = false;
+}
+//player
+//{
+var player = createSprite(spawnx, spawny);
+player.setAnimation("character");
+player.depth = 3;
+//}
+//swing
+//level groups
+{
+var spikes=createGroup();
+var ruinspikes=createGroup();
+var walls = createGroup();
+var vertwalls = createGroup();
+walls.setDepthEach=4;
+var ruin=createGroup();
+var cornersin = createGroup();
+var cornersout = createGroup();
+var blueblocks=createGroup();
+var fullcorners=createGroup();
+var tricorners=createGroup();
+var tricornercorners=createGroup();
+var duocorners=createGroup();
+var orb_ground = createGroup();
+}
+//{
+var groundorb1=createSprite(210, 20);
+orb_ground.add(groundorb1);
+var groundorb2=createSprite(290, -350);
+orb_ground.add(groundorb2);
+var groundorb3=createSprite(890, -710);
+orb_ground.add(groundorb3);
+var groundorb4=createSprite(1370, -1190);
+orb_ground.add(groundorb4);
+
+orb_ground.setAnimationEach("orb_ground");
+orb_ground.setScaleEach(1);
+orb_ground.setDepthEach(3);
+//}
+
+var stars = createGroup();
+//{
+var star1 = createSprite(200, 280);
+var star2 = createSprite(230, 280);
+var star3 = createSprite(260, 280);
+var star5 = createSprite(410, -120);
+var star6 = createSprite(450, -120);
+stars.add(star1);
+stars.add(star2);
+stars.add(star3);
+stars.add(star5);
+stars.add(star6);
+
+stars.setAnimationEach("star");
+stars.setScaleEach(1.5);
+//}
+function block(x, y){
+  walls.add(createSprite(x, y));
+  walls.setAnimationEach("ground");
+  walls.setScaleEach(2);
+  walls.setColliderEach("rectangle", 0, 0, 35, 11);
+}
+function vertWall(x, y, r){
+  vertwallsprite=createSprite(x, y);
+  vertwalls.add(vertwallsprite);
+  vertwalls.setAnimationEach("vertWall");
+  vertwalls.setScaleEach(2);
+  vertwallsprite.rotation=r;
+  vertwalls.setColliderEach("rectangle", 0, 0, 11, 30);
+}
+function blockwspike(x, y){
+  walls.add(createSprite(x, y));
+  walls.setAnimationEach("ground");
+  walls.setScaleEach(2);
+  walls.setColliderEach("rectangle", 0, 0, 20, 11);
+  spikes.add(createSprite(x, y-31));
+  spikes.depth=1;
+  spikes.setAnimationEach("spike");
+  spikes.setScaleEach(2);
+  spikes.setColliderEach("rectangle", 0, 0, 6, 12, 0);
+}
+function ruinblock(x, y){
+  ruin.add(createSprite(x, y));
+  ruin.setAnimationEach("brick");
+  ruin.setScaleEach(2);
+  ruin.setDepthEach=1;
+  ruin.setColliderEach("rectangle", 0, 1, 20, 20);
+}
+function ruinblockwspike(x, y){
+  ruin.add(createSprite(x, y));
+  ruin.setAnimationEach("brick");
+  ruin.setScaleEach(2);
+  ruin.setColliderEach("rectangle", 0, 0, 20, 20);
+  ruinspikes.add(createSprite(x, y-36));
+  ruinspikes.depth=1;
+  ruinspikes.setAnimationEach("ruinspike");
+  ruinspikes.setScaleEach(2);
+  ruinspikes.setColliderEach("rectangle", 0, 0, 6, 12, 0);
+}
+function cornerin(x, y, r){
+  incornersprite=createSprite(x, y);
+  cornersin.add(incornersprite);
+  cornersin.setAnimationEach("inner corner");
+  cornersin.setScaleEach(2);
+  cornersin.setColliderEach("rectangle", 0, -3, 20, 16);
+  incornersprite.rotation=r;
+}
+function cornerout(x, y, r){
+  outcornersprite=createSprite(x, y);
+  cornersout.add(outcornersprite);
+  cornersout.setAnimationEach("outer corner");
+  cornersout.setScaleEach(2);
+  cornersout.setColliderEach("rectangle", 3, 4, 19, 19);
+  outcornersprite.rotation=r;
+}
+function blueblock(x, y){
+  blueblocks.add(createSprite(x, y));
+  blueblocks.setAnimationEach("bluetile");
+  blueblocks.setScaleEach(2);
+}
+function fullcorner(x, y){
+  fullcornersprite=createSprite(x, y);
+  fullcorners.add(fullcornersprite);
+  fullcorners.setAnimationEach("fullcorner");
+  fullcorners.setScaleEach(2);
+  fullcorners.setColliderEach("rectangle", 0, 0, 14, 14);
+}
+function tricorner(x, y, r, s){
+  if (s==1){
+    tricornersprite=createSprite(x, y);
+    tricorners.add(tricornersprite);
+    tricorners.setAnimationEach("tricorner");
+    tricorners.setScaleEach(2);
+    tricorners.setColliderEach("rectangle", 4, 0, 19, 12);
+    tricornersprite.rotation=r;
+  }else if(s==2){
+    tricornersprite=createSprite(x, y);
+    tricorners.add(tricornersprite);
+    tricorners.setAnimationEach("tricorner");
+    tricorners.setScaleEach(2);
+    tricorners.setColliderEach("rectangle", 4, 0, 19, 12);
+    tricornersprite.rotation=r;
+    spikes.add(createSprite(x, y-31));
+    spikes.depth=1;
+    spikes.setAnimationEach("spike");
+    spikes.setScaleEach(2);
+    spikes.setColliderEach("rectangle", 0, 0, 6, 12, 0);
+  }
+}
+function rspikeunder(x, y, r){
+  ruin.add(createSprite(x, y));
+  ruin.setAnimationEach("brick");
+  ruin.setScaleEach(2);
+  ruin.setColliderEach("rectangle", 0, 0, 20, 18);
+  if (r==1){
+    underspike=createSprite(x+34, y);
+    underspike.rotation=90;
+  } else if (r==2){
+    underspike=createSprite(x, y+34);
+    underspike.rotation=180;
+  } else if (r==3){
+    underspike=createSprite(x-34, y);
+    underspike.rotation=270;
+  }
+  ruinspikes.add(underspike);
+  ruinspikes.depth=1;
+  ruinspikes.setAnimationEach("ruinspike");
+  ruinspikes.setScaleEach(2);
+  ruinspikes.setColliderEach("rectangle", 0, 0, 6, 12, 0);
+}
+function tricornercorner(x, y, r){
+  tricornercornersprite=createSprite(x, y);
+  tricornercorners.add(tricornercornersprite);
+  tricornercorners.setAnimationEach("tricornercorner");
+  tricornercorners.setScaleEach(2);
+  tricornercorners.setColliderEach("rectangle", 0, 0, 10, 10);
+  tricornercornersprite.rotation=r;
+}
+function duocorner(x, y, r){
+  duocornersprite=createSprite(x, y);
+  duocorners.add(duocornersprite);
+  duocorners.setAnimationEach("duocorner");
+  duocorners.setScaleEach(2);
+  duocorners.setColliderEach("rectangle", 0, 0, 25, 12);
+  duocornersprite.rotation=r;
+}
+function cup(x, y, v){
+  //thoughts: cup is 2 tricorners, 2 tricornercorners, and a duocorner shaped like a square bracket -> [
+  if(v==1){
+    duocorner(x, y, 0);
+    tricornercorner(x+40, y, 180);
+    tricornercorner(x-40, y, 270);
+    tricorner(x+40, y-40, 90, 1);
+    tricorner(x-40, y-40, 90, 1);
+  }
+  if(v==2){
+    duocorner(x, y, 90);
+    tricornercorner(x, y-40, 0);
+    tricornercorner(x, y+40, 270);
+    tricorner(x+40, y-40, 180, 1);
+    tricorner(x+40, y+40, 180, 1);
+  }
+  if(v==3){
+    duocorner(x, y, 180);
+    tricornercorner(x+40, y, 90);
+    tricornercorner(x-40, y, 0);
+    tricorner(x+40, y+40, 270, 1);
+    tricorner(x-40, y+40, 270, 1);
+  }
+  if(v==4){
+    duocorner(x, y, 270);
+    tricornercorner(x, y-40,90);
+    tricornercorner(x, y+40, 180);
+    tricorner(x-40, y-40, 0, 1);
+    tricorner(x-40, y+40, 0, 1);
+  }
+}
+//blocks for level
+{
+  cornerout(0, 350, 0);
+  block(40, 350);
+  block(80, 350);
+  block(120, 350);
+  cornerin(160, 350, 180);
+  cornerout(160, 310, 0);
+  block(200, 310);
+  blueblock(200, 350);
+  cornerout(240, 310, 90);
+  vertWall(240, 350, 0);
+  cornerout(240, 390, 180);
+  vertWall(200, 390, 90);
+  vertWall(160, 390, 90);
+  vertWall(120, 390, 90);
+  vertWall(80, 390, 90);
+  vertWall(40, 390, 90);
+  cornerout(0, 390, 270);
+  
+  //^first platform
+  
+  cornerout(330, 270, 0);
+  cornerin(370, 270, 180);
+  cornerout(370, 230, 0);
+  cornerout(410, 230, 90);
+  vertWall(410, 270, 0);
+  cornerout(410, 310, 180);
+  vertWall(370, 310, 90);
+  cornerout(330, 310, 270);
+  
+  //^second platform
+  
+  fullcorner(290, 190);
+  
+  //^random thing
+  
+  cornerout(210, 150, 90);
+  block(170, 150);
+  cornerin(130, 150, 270);
+  cornerout(130, 110, 90);
+  cornerout(90, 110, 0);
+  vertWall(90, 150, 180);
+  cornerout(90, 190, 270);
+  vertWall(130, 190, 90);
+  vertWall(170, 190, 90);
+  cornerout(210, 190, 180);
+  
+  //^third platform
+  
+  tricorner(210, 70, 0, 1);
+  tricorner(250, 70, 180, 1);
+  
+  //^skinny checkpoint platform
+  
+  cornerout(290, 30, 0);
+  cornerin(330, 30, 180);
+  cornerout(330, -10, 0);
+  block(370, -10);
+  block(410, -10);
+  block(450, -10);
+  cornerin(490, -10, 180);
+  cornerout(490, -50, 0);
+  cornerout(530, -50, 90);
+  vertWall(530, -10, 0);
+  vertWall(530, 30, 0);
+  cornerout(530, 70, 180);
+  vertWall(490, 70, 90);
+  blueblock(490, 30);
+  vertWall(450, 70, 90);
+  blueblock(450, 30);
+  vertWall(410, 70, 90);
+  blueblock(410, 30);
+  vertWall(370, 70, 90);
+  blueblock(370, 30);
+  vertWall(330, 70, 90);
+  cornerout(290, 70, 270);
+  
+  //^fourth platform
+  
+  tricorner(410, -80, 180, 1);
+  tricorner(370, -80, 0, 2);
+  
+  //^first spike platform
+  
+  tricorner(330, -130, 180, 1);
+  tricorner(290, -130, 0, 2);
+  
+  //^second spike platform
+  
+  cornerout(250, -180, 90);
+  cornerin(210, -180, 270);
+  cornerout(210, -220, 90);
+  cornerin(170, -220, 270);
+  cornerout(170, -260, 90);
+  cornerout(130, -260, 0);
+  vertWall(130, -220, 180);
+  vertWall(130, -180, 180);
+  cornerout(130, -140, 270);
+  vertWall(170, -140, 90);
+  blueblock(170, -180);
+  vertWall(210, -140, 90);
+  cornerout(250, -140, 180);
+  
+  //^fifth platform
+  
+  fullcorner(290, -300);
+  
+  //^random checkpoint thing
+  
+  ruinblock(330, -300);
+  ruinblock(370, -300);
+  ruinblockwspike(410, -300);
+  ruinblock(450, -300);
+  ruinblockwspike(490, -300);
+  ruinblock(530, -300);
+  ruinblock(570, -300);
+  ruinblock(610, -300);
+  ruinblock(650, -300);
+  ruinblock(690, -300);
+  ruinblock(570, -340);
+  ruinblock(610, -380);
+  ruinblock(650, -420);
+  ruinblock(690, -460);
+  
+  //^first floor
+  
+  ruinblock(530, -460);
+  ruinblockwspike(490, -460);
+  ruinblock(450, -460);
+  ruinblock(410, -460);
+  ruinblock(370, -460);
+  ruinblock(330, -460);
+  ruinblock(450, -500);
+  ruinblock(410, -540);
+  ruinblock(370, -580);
+  ruinblock(330, -620);
+  
+  //^second floor
+  
+  ruinblock(490, -620);
+  ruinblock(530, -620);
+  ruinblockwspike(570, -620);
+  ruinblock(610, -620);
+  ruinblockwspike(650, -620);
+  ruinblock(690, -620);
+  
+  //^third floor
+  
+  cornerout(730, -620, 0);
+  blockwspike(770, -620);
+  block(810, -620);
+  cornerin(850, -620, 180);
+  cornerout(850, -660, 0);
+  block(890, -660);//checkpoint
+  block(930, -660);
+  blockwspike(970, -660);
+  block(1010, -660);
+  block(1050, -660);
+  cornerin(1090, -660, 180);
+  cornerout(1090, -700, 0);
+  block(1130, -700);
+  cornerout(1170, -700, 90);
+  vertWall(1170, -660, 0);
+  vertWall(1170, -620, 0);
+  vertWall(1170, -580, 0);
+  cornerout(1170, -540, 180);
+  vertWall(1130, -540, 90);
+  blueblock(1130, -580);
+  blueblock(1130, -620);
+  blueblock(1130, -660);
+  vertWall(1090, -540, 90);
+  blueblock(1090, -580);
+  blueblock(1090, -620);
+  vertWall(1050, -540, 90);
+  blueblock(1050, -580);
+  blueblock(1050, -620);
+  vertWall(1010, -540, 90);
+  blueblock(1010, -580);
+  blueblock(1010, -620);
+  vertWall(970, -540, 90);
+  blueblock(970, -580);
+  blueblock(970, -620);
+  vertWall(930, -540, 90);
+  blueblock(930, -580);
+  blueblock(930, -620);
+  vertWall(890, -540, 90);
+  blueblock(890, -580);
+  blueblock(890, -620);
+  vertWall(850, -540, 90);
+  blueblock(850, -580);
+  vertWall(810, -540, 90);
+  blueblock(810, -580);
+  vertWall(770, -540, 90);
+  blueblock(770, -580);
+  cornerout(730, -540, 270);
+  vertWall(730, -580, 180);
+  
+  //^sixth platform
+  
+  ruinblock(1210, -700);
+  rspikeunder(1210, -820, 2);
+  ruinblock(1250, -740);
+  rspikeunder(1250, -860, 2);
+  ruinblock(1290, -780);
+  rspikeunder(1290, -900, 2);
+  
+  //^spike stair things
+  
+  ruinblock(1330, -780);
+  ruinblock(1370, -780);
+  tricorner(1370, -860, 0, 1);
+  ruinblock(1410, -780);
+  tricorner(1410, -860, 180, 1);
+  ruinblock(1450, -780);
+  
+  ruinblock(1490, -780);
+  ruinblock(1490, -820);
+  ruinblock(1530, -820);
+  ruinblock(1530, -860);
+  ruinblock(1530, -900);
+  ruinblock(1530, -940);
+  ruinblock(1490, -980);
+  ruinblock(1450, -980);
+  ruinblock(1410, -980);
+  ruinblock(1370, -980);
+  ruinblock(1330, -980);
+  
+  //^room thing
+  
+  ruinblockwspike(1170, -820);
+  ruinblock(1130, -820);
+  ruinblockwspike(1090, -820);
+  ruinblock(1050, -820);
+  ruinblock(1010, -860);
+  ruinblockwspike(970, -860);
+  ruinblock(930, -900);
+  ruinblock(890, -860);
+  ruinblock(890, -820);
+  ruinblock(930, -820);
+  ruinblock(930, -860);
+  ruinblock(970, -820);
+  ruinblock(1010, -820);
+  ruinblock(890, -900);
+  ruinblock(890, -940);
+  ruinblock(890, -980);
+  ruinblock(890, -1020);
+  ruinblock(890, -1060);
+  ruinblockwspike(890, -1100);
+  ruinblock(930, -1100);
+  rspikeunder(970, -1220, 1);
+  rspikeunder(970, -1220, 2);
+  rspikeunder(970, -1220, 3);
+  ruinblock(970, -1100);
+  ruinblock(1010, -1100);
+  ruinblockwspike(1050, -1100);
+  ruinblock(1090, -1100);
+  ruinblockwspike(1130, -1100);
+  ruinblock(1170, -1100);
+  ruinblock(1050, -940);
+  ruinblockwspike(1090, -940);
+  ruinblock(1130, -980);
+  ruinblockwspike(1170, -980);
+  
+  //^ruin path
+  
+  cornerout(1210, -980, 270);
+  vertWall(1250, -980, 90);
+  cornerout(1290, -980, 180);
+  cornerin(1290, -1020, 0);
+  cornerout(1330, -1020, 180);
+  cornerin(1330, -1060, 0);
+  cornerout(1370, -1060, 180);
+  cornerin(1370, -1100, 0);
+  cornerout(1410, -1100, 180);
+  cornerout(1410, -1140, 90);
+  block(1370, -1140);//checkpoint
+  cornerout(1330, -1140, 0);
+  cornerin(1330, -1100, 180);
+  cornerout(1290, -1100, 0);
+  cornerin(1290, -1060, 180);
+  cornerout(1250, -1060, 0);
+  cornerin(1250, -1020, 180);
+  cornerout(1210, -1020, 0);
+  
+  //checkpoint island
+  
+  cornerout(850, -1100 , 180);
+  cornerout(850, -1140 , 90);
+  block(810, -1140);
+  blockwspike(770, -1140);
+  block(730, -1140);
+  cornerin(690, -1140, 270);
+  cornerout(690, -1180, 90);
+  cornerin(650, -1180, 270);
+  cornerout(650, -1220, 90);
+  blockwspike(610, -1220);
+  cornerin(570, -1220, 270);
+  cornerout(570, -1260, 90);
+  rspikeunder(530, -1333, 2);
+  cornerout(530, -1260, 0);
+  cornerin(530, -1220, 180);
+  cornerout(490, -1220, 0);
+  vertWall(490, -1180, 180);
+  vertWall(490, -1140, 180);
+  vertWall(490, -1100, 180);
+  cornerout(490, -1060, 270);
+  cornerout(530, -1060, 180);
+  cornerin(530, -1100, 0);
+  blueblock(530, -1140);
+  blueblock(530, -1180);
+  vertWall(570, -1100, 90);
+  blueblock(570, -1140);
+  blueblock(570, -1180);
+  vertWall(610, -1100, 90);
+  blueblock(610, -1140);
+  blueblock(610, -1180);
+  vertWall(650, -1100, 90);
+  blueblock(650, -1140);
+  vertWall(690, -1100, 90);
+  vertWall(730, -1100, 90);
+  vertWall(770, -1100, 90);
+  vertWall(810, -1100, 90);
+  
+  //^platform 8 maybe?
+  
+  fullcorner(370, -1220);
+  fullcorner(250, -1220);
+  
+}//section 1
+{
+cup(130, -1300, 2);
+cup(250, -1340, 4);
+ruinblock(130, -1380);
+ruinblockwspike(90, -1380);
+ruinblock(50, -1380);
+ruinblockwspike(10, -1380);
+ruinblock(-30, -1420);
+ruinblockwspike(-70, -1420);
+rspikeunder(-70, -1580, 2);
+ruinblock(-110, -1460);
+ruinblock(-150, -1500);
+
+}//section 2
+
+function draw() {
+  if(camera.x==10060){
+    if (mousePressedOver(titlebutton)||(keyWentDown("enter"))||(keyWentDown("space"))){
+      cameraxvel=0;
+      camerayvel=0;
+      canmove=1;
+    }
+  }
+  if (keyDown("h")){
+    camera.zoom-=0.02;
+  }
+  if (keyDown("y")){
+    camera.zoom+=0.02;
+  }
+  background("black");
+  fill("white");
+  strokeWeight(5);
+  playerGravity();
+  checkGround();
+  playerMovement();
+  playerCollision();
+  cointhings();
+  checkpoints();
+  playerdeaths();
+  cameracontrols();
+  camerareset();
+  dev();
+  music();
+  camera.x = player.x + cameraxvel;
+  camera.y = player.y + camerayvel;
+  nonforeground.x=player.x/4;
+  nonforeground.y=player.y/4;
+  nonforeground.setAnimation("background");
+  nonforeground.depth=1;
+  nonforeground.scale=2.5;
+  nonforeground2.x=player.x/2.5;
+  nonforeground2.y=player.y/2.5;
+  nonforeground2.setAnimation("background2");
+  nonforeground2.depth=1;
+  nonforeground2.scale=2.5;
+  drawSprites();
+  if (starcount<0){
+    starcount=0;
+  }
+  swingtimer+=1;
+  
+}
+function death(){
+    player.x = spawnx;
+    player.y = spawny;
+    player.setVelocity(0, 0);
+    starcount=starcount-3;  
+}
+function playerMovement() {
+  if (canmove===1){
+    if (keyDown("right") || keyDown("d")) {
+      player.x += speed;
+    }
+    if (keyDown("left") || keyDown("a")) {
+      player.x -= speed;
+    }
+    if (keyDown("up") || keyDown("space") || keyDown("w")) {
+      if (touchingGround)
+        player.velocityY = -jumpForce;
+    }
+    if (keyDown("s")||keyDown("down")){
+      player.setAnimation("character_crouch");
+    } else {
+      player.setAnimation("character");
+    }
+  }
+}
+function playerGravity() {
+  player.velocityY += gravity;
+}
+function playerCollision() {
+  player.collide(walls);
+  player.collide(ruin);
+  player.collide(cornersin);
+  player.collide(cornersout);
+  player.collide(vertwalls);
+  player.collide(fullcorners);
+  player.collide(tricorners);
+  player.collide(tricornercorners);
+  player.collide(duocorners);
+  
+  if (player.y > 400) {
+    death();
+  }
+}
+function checkGround() {
+  player.y += 0.5;
+  touchingGround = player.isTouching(walls)|| player.isTouching(ruin)||player.isTouching(cornersin)||player.isTouching(cornersout)||player.isTouching(vertwalls)||player.isTouching(fullcorners)||player.isTouching(tricorners)||player.isTouching(tricornercorners)||player.isTouching(duocorners);
+  player.y -= 0.5;
+}
+function checkpoints(){
+  if (player.isTouching(groundorb1)) {
+    if(keyWentDown("e")){
+      groundorb1.setAnimation("orb_ground_empty");
+      spawnx=player.x;
+      spawny=player.y;
+    }
+  }
+  if (player.isTouching(groundorb2)) {
+    if(keyWentDown("e")){
+      groundorb2.setAnimation("orb_ground_empty");
+      spawnx=player.x;
+      spawny=player.y;
+    }
+  }
+  if (player.isTouching(groundorb3)) {
+    if(keyWentDown("e")){
+      groundorb3.setAnimation("orb_ground_empty");
+      spawnx=player.x;
+      spawny=player.y;
+    }
+  }
+  if (player.isTouching(groundorb4)) {
+    if(keyWentDown("e")){
+      groundorb4.setAnimation("orb_ground_empty");
+      spawnx=player.x;
+      spawny=player.y;
+    }
+  }
+}
+function cointhings(){
+ if(player.isTouching(star1)){
+  star1.x = 100000;
+  star1.y = 100000;
+  starcount = starcount + 1;
+ } 
+  if(player.isTouching(star2)){
+  star2.x = 100000;
+  star2.y = 100000;
+  starcount = starcount + 1;
+ } 
+  if(player.isTouching(star3)){
+  star3.x = 100000;
+  star3.y = 100000;
+  starcount = starcount + 1;
+ }
+ if(player.isTouching(star5)){
+  star5.x = 100000;
+  star5.y = 100000;
+  starcount = starcount + 1;
+ }
+ if(player.isTouching(star6)){
+  star6.x = 100000;
+  star6.y = 100000;
+  starcount = starcount + 1;
+ }
+
+}
+function playerdeaths() {
+  if (player.isTouching(spikes)){
+    death();
+  }
+  if (player.isTouching(ruinspikes)){
+    death();
+  }
+//  if (player.isTouching(sawsprite)){
+//    death();
+//  }
+  if (keyWentDown("q")){
+    death();
+  }
+}
+function cameracontrols(){
+  if (canmove===1){
+    if (keyDown("l")){
+      cameraxvel += 12;
+    }
+    if (keyDown("j")){
+      cameraxvel -= 12;
+    }
+    if (keyDown("i")){
+      camerayvel -= 12;
+    }
+    if (keyDown("k")){
+      camerayvel += 12;
+    }
+  }
+}
+function camerareset(){
+if (canmove==1){
+  if (keyDown("r")){
+      cameraxvel = 0;
+      camerayvel = 0;
+      camera.zoom=1;
+    }
+  }
+}
+function dev(){
+  if (canmove===1){
+    if (keyWentDown("p")){
+      player.x=134;
+      player.y=-1408;
+    }
+  }
+}
+function music(){
+  if (keyWentDown("1")){
+    stopSound("");
+    playSound("Cursedsnake---Stride-(1).mp3", true);
+  }
+  if (keyWentDown("2")){
+    stopSound("");
+    playSound("Creo---Epilogue.mp3", true);
+  }
+  if (keyWentDown("3")){
+    stopSound("");
+    playSound("Creo---Never-Make-It.mp3", true);
+  }
+  if (keyWentDown("4")){
+    stopSound("");
+    playSound("Creo---Vice.mp3", true);
+  }
+  if (keyWentDown("5")){
+    stopSound("");
+    playSound("Creo---Glome.mp3", true);
+  }
+  if (keyWentDown("6")){
+    stopSound("");
+    playSound("Creo---Drift.mp3", true);
+  }
+  if (keyWentDown("7")){
+    stopSound("");
+    playSound("Creo---Challenger.mp3", true);
+  }
+  if (keyWentDown("8")){
+    stopSound("");
+    playSound("Creo---Dark-Tides.mp3", true);
+  }
+  if (keyWentDown("9")){
+    stopSound("");
+    playSound("Creo---Exoplanet.mp3", true);
+  }
+  if (keyWentDown("0")){
+    stopSound("");
+    playSound("Ping!-(1).mp3", true);
+  }
+  
+}
