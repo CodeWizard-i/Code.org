@@ -1,0 +1,187 @@
+var turn = 0;
+
+function isPlayed(text){
+  if(text==""){
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function resetBoard(){
+  setText("1","");
+  setText("2","");
+  setText("3","");
+  setText("4","");
+  setText("5","");
+  setText("6","");
+  setText("7","");
+  setText("8","");
+  setText("9","");
+  turn = 0;
+  setText("10", "");
+}
+
+function threeInARow(){
+  var result = false;
+  if(getText("1")==getText("2")&&getText("2")==getText("3")&&getText("1")!==""){
+    result = true;
+  }
+  else if(getText("4")==getText("5")&&getText("5")==getText("6")&&getText("4")!==""){
+    result = true;
+  }
+  else if(getText("7")==getText("8")&&getText("8")==getText("9")&&getText("7")!==""){
+    result = true;
+  }
+  else if(getText("1")==getText("4")&&getText("4")==getText("7")&&getText("1")!==""){
+    result = true;
+  }
+  else if(getText("2")==getText("5")&&getText("5")==getText("8")&&getText("2")!==""){
+    result = true;
+  }
+  else if(getText("3")==getText("6")&&getText("6")==getText("9")&&getText("3")!==""){
+    result = true;
+  }
+  else if(getText("1")==getText("5")&&getText("5")==getText("9")&&getText("1")!==""){
+    result = true;
+  }
+  else if(getText("3")==getText("5")&&getText("5")==getText("7")&&getText("3")!==""){
+    result = true;
+  }
+  return result;
+}
+
+function game(){
+  if(threeInARow()){
+    if(turn%2==1){
+      setText("10", "Player O Wins");
+    }
+    else{
+      setText("10", "Player X Wins");
+    }
+  }
+  else if(turn==9){
+    setText("10", "Tie");
+  }
+}
+
+onEvent("1", "click", function() {
+  if(isPlayed(getText("1"))){
+    if(turn%2==1){
+      setText("1","X");
+      turn++;
+    }else{
+      setText("1","O");
+      turn++;
+    }
+    game();
+  }
+});
+
+onEvent("2", "click", function() {
+  if(isPlayed(getText("2"))){
+    if(turn%2==1){
+      setText("2","X");
+      turn++;
+    }else{
+      setText("2","O");
+      turn++;
+    }
+    game();
+  }
+});
+
+onEvent("3", "click", function() {
+  if(isPlayed(getText("3"))){
+    if(turn%2==1){
+      setText("3","X");
+      turn++;
+    }else{
+      setText("3","O");
+      turn++;
+    }
+    game();
+  }
+});
+
+onEvent("4", "click", function() {
+  if(isPlayed(getText("4"))){
+    if(turn%2==1){
+      setText("4","X");
+      turn++;
+    }else{
+      setText("4","O");
+      turn++;
+    }
+    game();
+  }
+});
+
+onEvent("5", "click", function() {
+  if(isPlayed(getText("5"))){
+    if(turn%2==1){
+      setText("5","X");
+      turn++;
+    }else{
+      setText("5","O");
+      turn++;
+    }
+    game();
+  }
+});
+
+onEvent("6", "click", function() {
+  if(isPlayed(getText("6"))){
+    if(turn%2==1){
+      setText("6","X");
+      turn++;
+    }else{
+      setText("6","O");
+      turn++;
+    }
+    game();
+  }
+});
+
+onEvent("7", "click", function() {
+  if(isPlayed(getText("7"))){
+    if(turn%2==1){
+      setText("7","X");
+      turn++;
+    }else{
+      setText("7","O");
+      turn++;
+    }
+    game();
+  }
+});
+
+onEvent("8", "click", function() {
+  if(isPlayed(getText("8"))){
+    if(turn%2==1){
+      setText("8","X");
+      turn++;
+    }else{
+      setText("8","O");
+      turn++;
+    }
+    game();
+  }
+});
+
+onEvent("9", "click", function() {
+  if(isPlayed(getText("9"))){
+    if(turn%2==1){
+      setText("9","X");
+      turn++;
+    }else{
+      setText("9","O");
+      turn++;
+    }
+    game();
+  }
+});
+
+onEvent("Reset", "click", function() {
+  resetBoard();
+});
